@@ -1,20 +1,34 @@
 {
   "tasks": [
     {
-      "id": "JkEReE8spwk",
-      "title": "gsgs",
-      "completed": false
-    },
-    {
       "id": 1,
-      "title": "jjj",
-      "completed": true
+      "title": "wwazr",
+      "completed": false
     },
     {
       "id": 2,
-      "title": "juu",
+      "title": "ryk",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "dxyli",
+      "completed": false
+    },
+    {
+      "title": "test id",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "cfgjfcui",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "id": 6,
+      "title": "hdzfh",
       "completed": false
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
