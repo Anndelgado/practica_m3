@@ -1,74 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pendientes</title>
-  </head>
 
-  <body id="body" class="bg-zinc-950 text-white min-h-screen flex justify-center p-10 transition-colors duration-300">
-    
-    <div class="w-full max-w-xl">
-      <div class="flex justify-end mb-6">
-        <button
-          id="themeToggle"
-          class="w-16 h-8 bg-zinc-700 rounded-full relative transition flex items-center px-1 cursor-pointer shadow-lg"
-        >
-          <div
-            id="toggleCircle"
-            class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-sm transition-all"
-          >
-            🌙
-          </div>
-        </button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Workspace</title>
+  <style>
+    #body { opacity: 0; }
+    #body.ready { opacity: 1; transition: opacity 0.15s ease; }
+  </style>
+</head>
 
-      <h1 class="text-4xl font-bold text-center mb-8">Lista de pendientes</h1>
+<body id="body" class="bg-zinc-950 text-white min-h-screen flex justify-center p-10 transition-colors duration-300">
 
-      <div class="flex gap-3 mb-6">
-        <input
-          id="taskInput"
-          type="text"
-          placeholder="Agregar tarea..."
-          class="flex-1 p-3 rounded-xl outline-none transition"
-        />
+  <div class="w-full max-w-xl">
 
-        <button
-          id="addBtn"
-          class="px-5 rounded-xl transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
-        >
-          Agregar
-        </button>
-      </div>
+    <div class="flex justify-end mb-6">
 
-      <div class="flex gap-3 mb-6">
-        <button
-          data-filter="all"
-          class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
-        >
-          Todas
-        </button>
+      <button id="themeToggle" type="button" class="w-16 h-8 bg-zinc-700 rounded-full relative transition flex items-center px-1 cursor-pointer shadow-lg">
 
-        <button
-          data-filter="pending"
-          class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
-        >
-          Pendientes
-        </button>
+        <div id="toggleCircle" class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-sm transition-all">
+          🌙
+        </div>
 
-        <button
-          data-filter="completed"
-          class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
-        >
-          Completadas
-        </button>
-      </div>
+      </button>
 
-      <p id="counter" class="mb-4 opacity-70"></p>
-
-      <ul id="taskList" class="space-y-3"></ul>
     </div>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <h1 class="text-4xl font-bold text-center mb-8">
+      Smart Workspace
+    </h1>
+
+    <div class="flex gap-3 mb-6">
+
+      <input id="taskInput" type="text" placeholder="Add a task..." class="flex-1 p-3 rounded-xl outline-none transition">
+
+      <button id="addBtn" type="button" class="px-5 rounded-xl transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105">
+        Add
+      </button>
+
+    </div>
+
+    <div class="flex gap-3 mb-6">
+
+      <button data-filter="all" type="button" class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105">
+        All
+      </button>
+
+      <button data-filter="pending" type="button" class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105">
+        Pending
+      </button>
+
+      <button data-filter="completed" type="button" class="filter-btn px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105">
+        Completed
+      </button>
+
+    </div>
+
+    <p id="counter" class="mb-4 opacity-70"></p>
+
+    <ul id="taskList" class="space-y-3"></ul>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
 </html>
