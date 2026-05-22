@@ -20,12 +20,10 @@ let tasks = [];
 let currentFilter = sessionStorage.getItem("filter") || "all";
 let darkMode = JSON.parse(localStorage.getItem("darkMode")) ?? true;
 
-// ─── Init ───────────────────────────────────────────────────────────────────
 applyTheme();
 updateActiveFilter();
 loadTasks();
 
-// ─── Event listeners ────────────────────────────────────────────────────────
 addBtn.addEventListener("click", addTask);
 
 taskInput.addEventListener("keydown", (event) => {
@@ -46,7 +44,6 @@ filterButtons.forEach((button) => {
   });
 });
 
-// ─── Data ────────────────────────────────────────────────────────────────────
 async function loadTasks() {
   try {
     tasks = await getTasks();
@@ -115,7 +112,6 @@ async function removeTask(id) {
   }
 }
 
-// ─── Render ──────────────────────────────────────────────────────────────────
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -174,7 +170,6 @@ function updateCounter() {
   counter.textContent = `Completed: ${completedCount} / ${tasks.length}`;
 }
 
-// ─── Tema ─────────────────────────────────────────────────────────────────────
 function toggleTheme() {
   darkMode = !darkMode;
   localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -196,7 +191,7 @@ function applyTheme() {
       btn.className =
         "filter-btn bg-zinc-800 text-white px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105";
     });
-    themeToggle.classList.remove("bg-yellow-400");
+    themeToggle.classList.remove("bg-violet-600");
     themeToggle.classList.add("bg-zinc-700");
     toggleCircle.innerHTML = "🌙";
     toggleCircle.classList.remove("translate-x-8");
@@ -206,20 +201,19 @@ function applyTheme() {
     taskInput.className =
       "flex-1 p-3 rounded-xl outline-none transition bg-white text-black shadow-lg";
     addBtn.className =
-      "bg-yellow-400 hover:bg-yellow-500 text-black px-5 rounded-xl transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105";
+      "bg-violet-600 hover:bg-violet-700 text-black px-5 rounded-xl transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105";
     filterBtns.forEach((btn) => {
       btn.className =
         "filter-btn bg-white text-black px-4 py-2 rounded-lg transition cursor-pointer shadow-lg hover:shadow-xl hover:scale-105";
     });
     themeToggle.classList.remove("bg-zinc-700");
-    themeToggle.classList.add("bg-yellow-400");
+    themeToggle.classList.add("bg-violet-600");
     toggleCircle.innerHTML = "☀️";
     toggleCircle.classList.add("translate-x-8");
   }
 
   updateActiveFilter();
 
-  // Fix FOUC: muestra el body solo cuando los estilos ya están aplicados
   body.classList.add("ready");
 }
 
